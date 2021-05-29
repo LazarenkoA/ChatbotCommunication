@@ -1,13 +1,14 @@
-package ChatbotCommunication
+package main
 
 import (
 	"bufio"
 	"fmt"
+	cbot "github.com/LazarenkoA/ChatbotCommunication"
 	"os"
 )
 
 func main() {
-	bot := new(ChatBot).New()
+	bot := new(cbot.ChatBot).New()
 	fmt.Println("Введите вопрос:")
 
 	myscanner := bufio.NewScanner(os.Stdin)
