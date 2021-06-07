@@ -5,17 +5,18 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 )
 
-type xu struct {
-	parent *ChatBot
+type XU struct {
+	parent *BotCreator
 }
 
-func (b *xu) New(parent *ChatBot) {
+func (b *XU) New(parent *BotCreator) {
 	b.parent = parent
 }
 
-func (b *xu) Send(question string) (string, error) {
+func (b *XU) Send(question string) (string, error) {
 	body := map[string]interface{}{
 		"bot":  "Добрый",
 		"text": question,
@@ -33,7 +34,7 @@ func (b *xu) Send(question string) (string, error) {
 	defer resp.Body.Close()
 
 	rbody, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
+	if err != nil || !(resp.StatusCode >= http.StatusOK && resp.StatusCode <= http.StatusIMUsed) {
 		return "", err
 	}
 

@@ -9,16 +9,16 @@ import (
 
 type Iprovader interface {
 	Send(string) (string, error)
-	New(*ChatBot)
+	New(*BotCreator)
 }
 
-type ChatBot struct {
+type BotCreator struct {
 	UID        *uuid.UUID
 	httpClient *http.Client
 	cookieJar  *cookiejar.Jar
 }
 
-func (b *ChatBot) New(provader Iprovader) Iprovader {
+func (b *BotCreator) New(provader Iprovader) Iprovader {
 	b.UID, _ = uuid.NewV4()
 	b.cookieJar, _ = cookiejar.New(nil)
 	b.httpClient = &http.Client{
