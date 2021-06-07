@@ -8,7 +8,8 @@ import (
 )
 
 func main() {
-	bot := new(cbot.ChatBot).New()
+	bot := new(cbot.ChatBot).New(new(cbot.xu).New())
+	//bot := new(cbot.ChatBot).New(new(cbot.botinplace))
 	fmt.Println("Введите вопрос:")
 
 	myscanner := bufio.NewScanner(os.Stdin)
