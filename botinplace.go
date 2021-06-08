@@ -16,7 +16,7 @@ type Botinplace struct {
 	parent *BotCreator
 }
 
-func (b *Botinplace) New(parent *BotCreator) {
+func (b *Botinplace) new(parent *BotCreator) {
 	b.parent = parent
 }
 

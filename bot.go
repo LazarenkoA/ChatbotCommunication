@@ -9,7 +9,7 @@ import (
 
 type Iprovader interface {
 	Send(string) (string, error)
-	New(*BotCreator)
+	new(*BotCreator)
 }
 
 type BotCreator struct {
@@ -30,6 +30,6 @@ func (b *BotCreator) New(provader Iprovader) Iprovader {
 		Timeout: time.Minute * 5,
 	}
 
-	provader.New(b)
+	provader.new(b)
 	return provader
 }

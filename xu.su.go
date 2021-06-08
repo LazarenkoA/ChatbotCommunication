@@ -12,7 +12,7 @@ type XU struct {
 	parent *BotCreator
 }
 
-func (b *XU) New(parent *BotCreator) {
+func (b *XU) new(parent *BotCreator) {
 	b.parent = parent
 }
 
